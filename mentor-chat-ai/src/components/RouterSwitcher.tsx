@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import About from "./About";
-import Discover from "./Discover";
+import Settings from "./Settings";
 import Home from "./Home";
 
 const RouterSwitcher = () => {
@@ -8,7 +8,7 @@ const RouterSwitcher = () => {
     <Routes>
       <Route path="*" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/discover" element={<Discover />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 };

@@ -1,29 +1,13 @@
-import { AppShell } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import Header from "./components/Header";
-import NavBar from "./components/NavBar";
 import RouterSwitcher from "./components/RouterSwitcher";
+import Navigation from "./components/Navigation";
 
 export default function App() {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
-    <AppShell
-      header={{ height: 60 }}
-      footer={{ height: 60 }}
-      navbar={{
-        width: 250,
-        breakpoint: "sm",
-        collapsed: { mobile: !opened },
-      }}
-      padding="md"
-    >
-      <Header toggle={toggle} opened={opened} />
-      <NavBar />
-      <AppShell.Main>
+    <div className="p-4 h-screen grid grid-cols-[minmax(150px,_20%)_1fr] grid-rows-1 gap-4 bg-gradient-to-tr from-indigo-950 via-stone-900 to-stone-950 bg-blend-color-burn">
+      <Navigation />
+      <article className="backdrop-blur-3sm backdrop-brightness-150 border border-stone-700 rounded-2xl">
         <RouterSwitcher />
-      </AppShell.Main>
-      <AppShell.Footer p="md">Footer</AppShell.Footer>
-    </AppShell>
+      </article>
+    </div>
   );
 }

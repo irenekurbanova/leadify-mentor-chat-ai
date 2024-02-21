@@ -8,7 +8,7 @@ import { MantineProvider, createTheme } from "@mantine/core";
 import App from "./App";
 import Home from "./components/Home";
 import About from "./components/About";
-import Discover from "./components/Discover";
+import Settings from "./components/Settings";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "discover",
-        element: <Discover />,
+        path: "settings",
+        element: <Settings />,
       },
     ],
   },
