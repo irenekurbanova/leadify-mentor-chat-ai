@@ -6,7 +6,7 @@ import { LuBoxes, LuAlertTriangle } from "react-icons/lu";
 
 const Home: React.FC = () => {
   return (
-    <div className="container h-full flex flex-col items-center justify-center gap-8 text-center">
+    <div className="h-full w-full flex flex-col items-center justify-center gap-8 text-center">
       <div className="flex-1 flex flex-col justify-center align-middle gap-12">
         <h1 className="text-3xl font-bold">Your AI Mentor for Infinite Possibilities</h1>
         <div className="mx-14 flex gap-4">
