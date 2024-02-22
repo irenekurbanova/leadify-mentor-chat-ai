@@ -34,11 +34,11 @@ const Navigation = ({ open }: NavigationProps) => {
             <button onClick={open}>Sign In</button>
           </li>
         </ul>
-        <button onClick={open} className="cursor-pointer p-2 bg-indigo-600 rounded-full">
+        {/* <button onClick={open} className="cursor-pointer p-2 bg-indigo-600 rounded-full">
           Sign up
-        </button>
+        </button> */}
       </div>
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-2 mr-2">
         <div className="flex gap-4">
           <span className="p-3 bg-indigo-600 rounded-full">
             <LuUser2 />
