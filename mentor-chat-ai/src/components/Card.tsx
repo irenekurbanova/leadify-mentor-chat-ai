@@ -8,7 +8,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ icon, title, content }) => {
   return (
-    <div className="p-2 grid grid-cols-1 bg-white/[.04] border border-stone-700 rounded-2xl">
+    <div className="basis-2/6 p-2 flex flex-col bg-white/[.04] border border-stone-700 rounded-2xl">
       <div className="flex justify-left items-center gap-4">
         <span className="p-2 bg-indigo-600 rounded-md">{icon}</span>
         <p className="text-lg font-semibold">{title}</p>

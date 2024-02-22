@@ -5,7 +5,11 @@ import { PiSignInBold } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import { LuUser2, LuLogOut } from "react-icons/lu";
 
-const Navigation = () => {
+type NavigationProps = {
+  open: () => void;
+};
+
+const Navigation = ({ open }: NavigationProps) => {
   return (
     <nav className="flex flex-col justify-between">
       <div className="grow flex flex-col gap-14">
@@ -27,10 +31,12 @@ const Navigation = () => {
           </li>
           <li className="p-2 rounded-md flex items-center gap-2 hover:backdrop-brightness-150">
             <PiSignInBold />
-            <button>Sign In</button>
+            <button onClick={open}>Sign In</button>
           </li>
         </ul>
-        <button className="cursor-pointer p-2 bg-indigo-600 rounded-full">Sign up</button>
+        <button onClick={open} className="cursor-pointer p-2 bg-indigo-600 rounded-full">
+          Sign up
+        </button>
       </div>
       <div className="flex items-center justify-between mb-2">
         <div className="flex gap-4">
