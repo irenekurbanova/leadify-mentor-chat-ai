@@ -10,7 +10,7 @@ const AuthenticationForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({ mode: "onBlur" });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
