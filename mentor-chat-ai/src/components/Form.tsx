@@ -23,6 +23,7 @@ const Form: React.FC = () => {
         onChange={inputChangeHandler}
         className="block p-2.5 w-full text-sm text-white rounded-lg  resize-none outline-none"
         placeholder="Start your learning journey..."
+        required={true}
       ></textarea>
       <button
         type="submit"
