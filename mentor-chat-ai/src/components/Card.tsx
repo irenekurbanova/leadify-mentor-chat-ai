@@ -10,9 +10,7 @@ const Card = ({ icon, title, content }: CardProps) => {
   return (
     <Stack p={10} className=" bg-white/[.04] border border-stone-700 rounded-2xl">
       <Group>
-        <Text component="span" className="p-2 bg-indigo-600 rounded-md">
-          {icon}
-        </Text>
+        <span className="p-2 bg-indigo-600 rounded-md">{icon}</span>
         <Text size="lg" fw={500}>
           {title}
         </Text>
@@ -20,9 +18,7 @@ const Card = ({ icon, title, content }: CardProps) => {
       <Stack>
         {content.map((item, index) => (
           <Group p={10} key={index} className="min-h-12 bg-white/[.06] rounded-md text-left">
-            <Text component="span" className="text-xs inline-block align-middle break-words whitespace-pre-line">
-              {item}
-            </Text>
+            <span className="text-xs inline-block align-middle break-words whitespace-pre-line">{item}</span>
           </Group>
         ))}
       </Stack>
