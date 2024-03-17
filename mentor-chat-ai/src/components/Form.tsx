@@ -1,36 +1,43 @@
-import { useState } from "react";
-import { VscSend } from "react-icons/vsc";
+import { ActionIcon, TextInput } from "@mantine/core";
+import { SendHorizontal } from "lucide-react";
+import { useForm } from "@mantine/form";
 
 const Form: React.FC = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  function formSubmitHandler(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    console.log(inputValue);
-    setInputValue("");
-  }
-
-  function inputChangeHandler(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    setInputValue(event.target.value);
-  }
+  const form = useForm({
+    initialValues: {
+      query: "",
+    },
+    validate: {
+      query: (value) => (value.length < 3 ? "Your question should be more descriptive" : null),
+    },
+  });
 
   return (
-    <form className="relative mx-10 flex items-center" onSubmit={formSubmitHandler}>
-      <textarea
+    <form
+      className="flex items-center"
+      onSubmit={form.onSubmit((values) => {
+        console.log(values);
+        form.reset();
+      })}
+    >
+      <TextInput
+        radius="lg"
         id="chat"
-        rows={1}
-        value={inputValue}
-        onChange={inputChangeHandler}
-        className="block p-2.5 w-full text-sm text-white rounded-lg  resize-none outline-none"
+        error={form.errors}
+        {...form.getInputProps("query")}
+        className="w-full text-white outline-none"
         placeholder="Start your learning journey..."
-        required={true}
-      ></textarea>
-      <button
-        type="submit"
-        className="absolute right-2 inline-flex justify-center p-2 text-white rounded-lg cursor-pointer hover:bg-indigo-600 transition"
-      >
-        <VscSend />
-      </button>
+        rightSection={
+          <ActionIcon
+            variant="subtle"
+            color="rgba(255, 255, 255, 1)"
+            type="submit"
+            className="absolute right-2 inline-flex justify-center p-2 text-white rounded-lg cursor-pointer hover:bg-indigo-600 transition"
+          >
+            <SendHorizontal size={16} />
+          </ActionIcon>
+        }
+      ></TextInput>
     </form>
   );
 };

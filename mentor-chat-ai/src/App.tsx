@@ -1,22 +1,23 @@
-import RouterSwitcher from "./components/RouterSwitcher";
+import Main from "./components/Main";
 import Navigation from "./components/Navigation";
-import ModalWindow from "./components/UI/Modal";
-import { useDisclosure } from "@mantine/hooks";
+// import ModalWindow from "./components/UI/Modal";
+import { Grid, Box } from "@mantine/core";
+// import { useDisclosure } from "@mantine/hooks";
 
 export default function App() {
-  const [opened, { open, close }] = useDisclosure(false);
+  // const [opened, { open, close }] = useDisclosure(false);
 
   return (
-    <div className="p-4 h-screen grid grid-cols-[minmax(100px,_15%)_1fr] grid-rows-1 gap-4 bg-gradient-to-tr from-indigo-950 via-stone-900 to-stone-950 bg-blend-color-burn">
-      <ModalWindow opened={opened} onClose={close} />
-      <Navigation open={open} />
-      <article className="backdrop-blur-3sm backdrop-brightness-150 border border-stone-700 rounded-2xl">
-        <RouterSwitcher />
-      </article>
-    </div>
+    <Box className="p-4 w-full h-screen bg-gradient-to-tr from-indigo-950 via-stone-900 to-stone-950 bg-blend-color-burn ">
+      <Grid justify="flex-start" className="flex h-full">
+        {/* <ModalWindow opened={opened} onClose={close} /> */}
+        <Grid.Col span={2} h={"100%"}>
+          <Navigation />
+        </Grid.Col>
+        <Grid.Col span={10}>
+          <Main />
+        </Grid.Col>
+      </Grid>
+    </Box>
   );
 }
-
-// bg-gradient-to-br from-purple-900 from-0% via-indigo-900 via-5% to-slate-900 to-90%
-// bg-gradient-to-tr from-indigo-950 via-stone-900 to-stone-950 bg-blend-color-burn
-// h-full w-full bg-zinc-500 bg-clip-padding backdrop-filter  backdrop-blur bg-opacity-50 saturate-100 backdrop-contrast-100

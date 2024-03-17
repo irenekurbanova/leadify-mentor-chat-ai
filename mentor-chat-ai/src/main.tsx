@@ -6,7 +6,7 @@ import "./index.css";
 import "@mantine/core/styles.css";
 import { MantineProvider, createTheme } from "@mantine/core";
 import App from "./App";
-import Home from "./components/Home";
+import Home from "./components/Main";
 import About from "./components/About";
 import Settings from "./components/Settings";
 

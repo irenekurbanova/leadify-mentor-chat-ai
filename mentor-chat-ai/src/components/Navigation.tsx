@@ -1,58 +1,37 @@
-import { LuSearch } from "react-icons/lu";
-import { MdOutlineInfo } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
-import { PiSignInBold } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
-import { LuUser2, LuLogOut } from "react-icons/lu";
+// import { LuSearch } from "react-icons/lu";
+// import { MdOutlineInfo } from "react-icons/md";
+// import { IoSettingsOutline } from "react-icons/io5";
+// import { PiSignInBold } from "react-icons/pi";
+// import { NavLink } from "react-router-dom";
+// import { LuUser2, LuLogOut } from "react-icons/lu";
+import { CircleUserRound } from "lucide-react";
+import QueryHistory from "./QueryHistory";
+import logoURL from "/logo.png";
+import { Box, Title, Text, Image, Group, Stack, ScrollArea } from "@mantine/core";
 
-type NavigationProps = {
-  open: () => void;
-};
+// type NavigationProps = {
+//   open: () => void;
+// };
 
-const Navigation = ({ open }: NavigationProps) => {
+const Navigation = () => {
   return (
-    <nav className="flex flex-col justify-between">
-      <div className="grow flex flex-col gap-14">
-        <div className="flex justify-between">
-          <p className="text-3xl font-semibold">Leadify</p>
-        </div>
-        <ul className="flex flex-col gap-4">
-          <li className="p-2 rounded-md flex items-center gap-2 hover:backdrop-brightness-150">
-            <LuSearch />
-            <NavLink to="/home">Home</NavLink>
-          </li>
-          <li className="p-2 rounded-md flex items-center gap-2 hover:backdrop-brightness-150">
-            <MdOutlineInfo />
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li className="p-2 rounded-md flex items-center gap-2 hover:backdrop-brightness-150">
-            <IoSettingsOutline />
-            <NavLink to="/settings">Settings</NavLink>
-          </li>
-          <li className="p-2 rounded-md flex items-center gap-2 hover:backdrop-brightness-150">
-            <PiSignInBold />
-            <button onClick={open}>Sign In</button>
-          </li>
-        </ul>
-        {/* <button onClick={open} className="cursor-pointer p-2 bg-indigo-600 rounded-full">
-          Sign up
-        </button> */}
-      </div>
-      <div className="flex items-center justify-between mb-2 mr-2">
-        <div className="flex gap-4">
-          <span className="p-3 bg-indigo-600 rounded-full">
-            <LuUser2 />
-          </span>
-          <div className="text-sm">
-            <p>User Name</p>
-            <p>someemail@gmail.com</p>
-          </div>
-        </div>
-        <span className="self-start">
-          <LuLogOut />
-        </span>
-      </div>
-    </nav>
+    <Stack component="nav">
+      <ScrollArea h={"90vh"} w={"100%"} type="hover" scrollbars="y" offsetScrollbars>
+        <Stack justify="space-between">
+          <Box pos="sticky" top={0} className="bg-stone-900">
+            <Group grow gap="xs">
+              <Image radius="md" h={35} w={45} src={logoURL} />
+              <Title>Leadify</Title>
+            </Group>
+          </Box>
+          <QueryHistory />
+        </Stack>
+      </ScrollArea>
+      <Group gap="sm">
+        <CircleUserRound />
+        <Text>UserName</Text>
+      </Group>
+    </Stack>
   );
 };
 
